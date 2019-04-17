@@ -1,5 +1,5 @@
 pragma solidity ^0.5.0;
-pragma experimental ABIEnconderV2;
+pragma experimental ABIEncoderV2;
 
 
 contract Voter  {
@@ -7,14 +7,13 @@ contract Voter  {
     uint[] public votes;
     string[] public options;
     
-    constructor(string[] memory _options){
-        
+    constructor(string[] memory _options) public {
         options = _options;
-        votes.lenght = options.lenght;
+        votes.length = options.length;
         
     }
     function vote(uint option) public {
-        require(0 <= option && option < option.lenght, "invalid option")
+        require(0 <= option && option < options.length, "invalid option");
         votes[option] = votes[option] + 1;
         
     }
@@ -23,7 +22,7 @@ contract Voter  {
     
         
     }
-    function ggetVotes() public view returns(uint[] memory){
+    function getVotes() public view returns(uint[] memory){
         return votes;
         
     }
